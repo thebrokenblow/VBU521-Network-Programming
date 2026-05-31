@@ -22,13 +22,19 @@ public class Server : IDisposable
     public async Task<string> ReceiveAsync()
     {
         _clientSocket = await _serverSocket.AcceptAsync();
+        var reques = await ReadResponceAsync(_clientSocket);
 
+        return reques;
+    }
+
+    private async Task<string> ReadResponceAsync(Socket clientSocket)
+    {
         int readBytes;
         var buffer = new byte[BufferSize];
         var requestBuilder = new StringBuilder();
         do
         {
-            readBytes = await _clientSocket.ReceiveAsync(buffer);
+            readBytes = await clientSocket.ReceiveAsync(buffer);
             var request = Encoding.UTF8.GetString(buffer, 0, readBytes);
             requestBuilder.Append(request);
         }

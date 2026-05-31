@@ -1,9 +1,10 @@
 ﻿using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 
-namespace Lesson1.Client;
+namespace Client;
 
-public class MyClient : IDisposable
+public class MyTcpClient : IDisposable
 {
     private readonly Socket _socket;
     private readonly string _address;
@@ -11,7 +12,7 @@ public class MyClient : IDisposable
 
     private const int BufferSize = 1024;
 
-    public MyClient(string address, int port)
+    public MyTcpClient(string address, int port)
     {
         _port = port;
         _address = address;
@@ -32,20 +33,28 @@ public class MyClient : IDisposable
         _socket.Shutdown(SocketShutdown.Send);
     }
 
-    public async Task<string> ReciveAsync()
+    public async Task<T> ReadAsync<T>()
+    {
+        var responceStr = await ReciveAsync();
+        var responce = JsonSerializer.Deserialize<T>(responceStr);
+
+        return responce;
+    }
+
+    private async Task<string> ReciveAsync()
     {
         int readBytes;
         var buffer = new byte[BufferSize];
-        var requestBuilder = new StringBuilder();
+        var responceBuilder = new StringBuilder();
         do
         {
             readBytes = await _socket.ReceiveAsync(buffer);
-            var request = Encoding.UTF8.GetString(buffer, 0, readBytes);
-            requestBuilder.Append(request);
+            var responce = Encoding.UTF8.GetString(buffer, 0, readBytes);
+            responceBuilder.Append(responce);
         }
         while (readBytes > 0);
 
-        return requestBuilder.ToString();
+        return responceBuilder.ToString();
     }
 
     public void Dispose()

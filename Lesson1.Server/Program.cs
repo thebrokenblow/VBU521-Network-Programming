@@ -1,6 +1,7 @@
 ﻿using Lesson1.Server;
 using System.Net;
 
+
 var ipEndPoint = new IPEndPoint(IPAddress.Loopback, 8888);
 var server = new Server(ipEndPoint, 1000);
 
