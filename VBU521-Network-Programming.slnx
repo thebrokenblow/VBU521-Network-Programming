@@ -1,6 +1,8 @@
 <Solution>
   <Project Path="Client/Client.csproj" Id="61d53508-29a7-4ebd-951a-6430ff63ee90" />
   <Project Path="Core/Core.csproj" Id="e34d122f-f65d-4429-9f42-af46701bdee0" />
+  <Project Path="HttpClient/HttpClientExample.csproj" Id="b95cc38c-5980-46b6-b3ce-47fbcfdd56b4" />
+  <Project Path="HttpServer/HttpServer.csproj" />
   <Project Path="Lesson1.Client/Lesson1.Client.csproj" />
   <Project Path="Lesson1.Server/Lesson1.Server.csproj" Id="2a7007cb-1c4f-4fbb-a09b-50e87b1b40da" />
   <Project Path="TcpServer/TcpServer.csproj" Id="d3a3aa0c-70ba-412c-9949-7d7b1357f41c" />
