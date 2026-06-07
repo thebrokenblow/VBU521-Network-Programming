@@ -6,4 +6,6 @@
   <Project Path="Lesson1.Client/Lesson1.Client.csproj" />
   <Project Path="Lesson1.Server/Lesson1.Server.csproj" Id="2a7007cb-1c4f-4fbb-a09b-50e87b1b40da" />
   <Project Path="TcpServer/TcpServer.csproj" Id="d3a3aa0c-70ba-412c-9949-7d7b1357f41c" />
+  <Project Path="UdpClient/UdpClient.csproj" Id="f1d3dfd5-5f26-4ccb-bbb2-1932d56d67e5" />
+  <Project Path="UpdServer/UpdServer.csproj" Id="7857a1c2-de4f-4bd2-b008-01651205685e" />
 </Solution>

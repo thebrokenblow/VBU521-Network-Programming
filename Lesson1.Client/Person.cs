@@ -1,4 +1,4 @@
-﻿namespace Lesson1.Client.Client;
+﻿namespace Lesson1.Client;
 
 public class Person
 {
